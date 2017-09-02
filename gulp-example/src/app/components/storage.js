@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('angularjsExample')
+    .module('explorer')
     .factory('storage', storage);
 
   /** @ngInject */

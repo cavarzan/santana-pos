@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, $interval, toastr, Github, $http) {
+  function MainController($log, $timeout, $interval, toastr, Github, $http) {
     var vm = this;
 
     vm.timestamp = moment();
@@ -17,6 +17,14 @@
       toastr['info']('Mensagem');
     }
 
+    vm.user = {
+        name : "Deividi Cavarzan",
+        value : 20.00,
+        carPlate : 'AOI9332',
+        zipcode: '80620360',
+        phone: '41999563272'
+    };
+
     $interval(function () {
       vm.timestamp = moment();
     }, 1000);
@@ -25,18 +33,21 @@
     // });
     vm.creationDate = moment();
 
+    vm.numbers = [0,1,2,3,4,5];
+
     vm.awesomeThing = {
       title : 'Titulo',
       description : 'Descrição',
       url : 'https://www.google.com'
-
     }
 
-    // $http.get("https://api.github.com/search/users?q=cavarzan")
-    //           .success(function (data) {
-    //               console.log(data);
-    //           });
-
+    vm.repository = {};
+    var query = "machado"
+    $http.get("http://viacep.com.br/ws/pr/ponta%20grossa/" + query + "/json")
+          .success(function (data) {
+            $log.info(data);
+            vm.repository = data;
+    });
 
 
 

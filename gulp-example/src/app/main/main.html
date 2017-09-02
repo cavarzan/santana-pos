@@ -4,20 +4,67 @@
     <acme-navbar creation-date="main.creationDate"></acme-navbar>
   </div>
 
-  <div class="jumbotron text-center">
+
+  <p>
+    {{main.repository | json}}
+  </p>
+
+  <!-- <div class="jumbotron text-center">
     <h1>Opa</h1>
     <p class="animated infinite" ng-class="main.classAnimation">
       <button type="button" class="btn btn-lg btn-success" ng-click="main.showToastr()">Splendid Toastr</button>
     </p>
 
-  </div>
+  </div> -->
 
-  <div class="row">
+  <!-- <div class="container">
+      <p ng-repeat="number in main.numbers"
 
-    <h1 ng-bind="main.timestamp"></h1>
-    
+      >{{$index}}</p>
 
-    </h1>
+      <span>NG-IF</span>
+
+      <p ng-repeat="number in main.numbers"
+        ng-if="number % 2 !== 1"
+      >{{number}}</p>
+  </div> -->
+
+  <!-- <div class="row">
+
+    <h1>Filtros customizados</h1>
+
+    <p>CEP: {{main.user.zipcode | cep}}</p>
+    <p>Telefone: {{main.user.phone | tel}}</p>
+    <p>Placa: {{main.user.carPlate | carPlate}}</p>
+
+
+<hr> -->
+
+
+<!-- <p ng-bind="main.timestamp.toDate() | date:'dd/MM/yyyy HH:mm'"></h1>
+    <p>
+
+      Date formatado: {{main.timestamp.toDate() | date:'dd/MM/yyyy HH:mm'}}
+      <br>
+      Date padrão: {{main.timestamp.toDate() | date}}
+      <br>
+      Date short: {{main.timestamp.toDate() | date: 'short'}}
+      <br>
+      Date medium: {{main.timestamp.toDate() | date: 'medium'}}
+      <br>
+      Date long: {{main.timestamp.toDate() | date: 'fullDate'}}
+      <br>
+      Upper: {{main.user.name | uppercase}}
+      <br>
+      Lower: {{main.user.name | lowercase}}
+      <br>
+      Currency: {{main.user.value | currency}}
+      <br>
+      Currency R$: {{main.user.value | currency:'R$ '}}
+      <br>
+
+    </p> -->
+
     <!-- <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'"> -->
     <div class="col-sm-12 col-md-12" >
       <div class="thumbnail center-block">
