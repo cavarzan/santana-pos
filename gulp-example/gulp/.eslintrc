@@ -1,4 +1,5 @@
 {
+  "extends": ["angular", "eslint:recommended"],
   "env": {
     "node": true
   }

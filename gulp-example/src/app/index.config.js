@@ -10,7 +10,7 @@
     // Enable log
     $logProvider.debugEnabled(true);
 
-    
+    // $httpProvider.defaults.headers.common['Authorization'] = 'token 70a3865c1e2b8cb04fcd938248eb04a933e8867a';
 
     // Set options third-party lib
     toastrConfig.allowHtml = true;
