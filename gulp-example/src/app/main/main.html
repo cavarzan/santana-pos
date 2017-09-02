@@ -13,13 +13,19 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
-      <div class="thumbnail">
+
+    <h1 ng-bind="main.timestamp"></h1>
+    <!-- <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'"> -->
+    <div class="col-sm-12 col-md-12" >
+      <div class="thumbnail center-block">
         <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
         <div class="caption">
-          <h3>{{ awesomeThing.title }}</h3>
-          <p>{{ awesomeThing.description }}</p>
-          <p><a ng-href="{{awesomeThing.url}}">{{ awesomeThing.url }}</a></p>
+          <h3 ng-bind="main.awesomeThing.title"></h3>
+          <p ng-bind="main.awesomeThing.description"></p>
+          <p><a ng-href="{{main.awesomeThing.url}}">{{ main.awesomeThing.url }}</a></p>
+
+          <p> {{ main.awesomeThing.title }} </p>
+          <p ng-bind="main.awesomeThing.title"></p>
         </div>
       </div>
     </div>
