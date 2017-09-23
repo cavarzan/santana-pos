@@ -5,7 +5,7 @@
 
     <div class="row center-block scale-fade"  >
         <div class="col-lg-12 center-block scale-fade-in">
-            <form ng-submit="vm.addName()" >
+            <form name="raffleForm" ng-submit="vm.addName(raffleForm)" novalidate >
                 <input required type="text" ng-model="vm.person.name" class="form-control nome" placeholder="Digite o nome...">
             </form>
         </div>
@@ -55,11 +55,11 @@
 
     <div class="row center hovered">
         <h2 class="shadows-h2 scale-fade" ng-click="vm.remove(person, $index)" ng-repeat="person in vm.persons track by $index"><span
-                ng-bind="person.name"></span></h2>
+                ng-bind-html="person.formattedName"></span></h2>
     </div>
 
-    <div class="row center" ng-show="showButton" >
-        <button class="btn btn-lg shadows-h2 scale-fade" ng-click="calcular()">
+    <div class="row center"  >
+        <button ng-disabled="!vm.showExecuteButton" class="btn btn-lg shadows-h2 scale-fade" ng-click="vm.executeRaffle()">
             SORTEAR
         </button>
     </div>
