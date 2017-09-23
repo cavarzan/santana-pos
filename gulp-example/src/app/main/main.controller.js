@@ -106,6 +106,10 @@
       phone: '41999563272'
     };
 
+    var time = 1000;
+    $timeout(function () {
+      time += 250;
+    }, time)
     $interval(function() {
       vm.timestamp = moment();
     }, 1000);
