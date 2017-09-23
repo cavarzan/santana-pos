@@ -30,13 +30,20 @@
       });
 
       if (!hasItem) {
-        vm.person.formattedName = $sce.trustAsHtml('<p style="color:white">' + vm.person.name + '</p>');
         vm.persons.push(angular.copy(vm.person));
         vm.person.name = undefined;
       } else {
         toastr['error']('Nome já adicionado');
       }
 
+      var json = angular.toJson(vm.persons);
+      localStorage.setItem('persons', json);
+
+    };
+
+    vm.loadStorage = function () {
+      var persons = localStorage.getItem('persons');
+      vm.persons = angular.fromJson(persons);
     };
 
     function getNewMoment() {

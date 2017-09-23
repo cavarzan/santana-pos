@@ -67,7 +67,7 @@
 
   <div class="row center hovered">
     <h2 class="shadows-h2 scale-fade" ng-click="vm.remove(person, $index)" ng-repeat="person in vm.persons track by $index">
-      <span ng-bind-html="person.formattedName"></span>
+      <span ng-bind-html="person.name"></span>
     </h2>
   </div>
 
