@@ -12,7 +12,7 @@
     </div>
 
 
-    <div ng-show="spinner" class="row spinner large">
+    <div ng-show="vm.showSpinner" class="row spinner large">
         <div class="spinner-container container1">
             <div class="circle1"></div>
             <div class="circle2"></div>
@@ -36,16 +36,16 @@
 
 
     <div class="row center">
-        <h2 ng-show="spinner" class="shadows-h2 scale-fade">
+        <h2 ng-show="vm.showSpinner" class="shadows-h2 scale-fade">
             <span data-ng-bind="transient"></span>
         </h2>
 
-        <h2 ng-show="result" class="shadows-h2 scale-fade center-block">
+        <h2 ng-show="vm.hasResult" class="shadows-h2 scale-fade center-block">
             E o sorteado é:
-            <span class="" data-ng-bind="transient"></span>
+            <span class="" data-ng-bind="vm.result"></span>
         </h2>
 
-        <div ng-show="result" class="row center">
+        <div ng-show="vm.result" class="row center">
             <button class="btn btn-lg shadows-h2 scale-fade" ng-click="repeat()">
                 Repetir
             </button>
