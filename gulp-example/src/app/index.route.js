@@ -12,12 +12,17 @@
         url: '/',
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
-        controllerAs: 'main'
+        controllerAs: 'vm'
       })
       .state('details', {
         url: '/details/:cep',
         templateUrl: 'app/details/details.html',
-        controller: 'DetailsController',
+        controller: 'DetailsController'
+      })
+      .state('raffle', {
+        url: '/sorteio',
+        templateUrl: 'app/raffle/raffle.html',
+        controller: 'RaffleController',
         controllerAs: 'vm'
       });
 
