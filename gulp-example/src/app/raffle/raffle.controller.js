@@ -42,28 +42,37 @@
     function getNewMoment() {
       var defer = $q.defer();
 
-      $timeout(function () {
+      $timeout(function() {
         defer.resolve(moment().toDate());
       }, 5000);
 
       return defer.promise;
     }
+
     vm.deferred = moment().toDate();
 
-    getNewMoment().then(function (result) {
+    getNewMoment().then(function(result) {
       vm.deferred = result;
     });
 
     vm.executeRaffle = function() {
       vm.items = angular.copy(vm.persons);
       vm.initialItems = angular.copy(vm.items);
-      clearScreen().then(function() {
-        vm.items = shuffle(vm.items);
-        process(vm.items);
-      });
+      vm.items = shuffle(vm.items);
+      clearScreen()
+        .then(process)
+        .then(showResult);
     };
 
-    function process($items) {
+    function showResult() {
+      vm.showSpinner = false;
+      vm.hasResult = true;
+      vm.result = vm.transientPerson;
+    }
+
+    function process() {
+      var $items = vm.items;
+      var defer = $q.defer();
       var index = 0;
       var time = 100;
       var iterations = 37 + Math.ceil((15 * Math.random()));
@@ -75,14 +84,13 @@
         $timeout(function() {
           index++;
           if (index === iterations) {
-            vm.showSpinner = false;
-            vm.hasResult = true;
-            vm.result = vm.transientPerson;
+            defer.resolve();
           } else {
             vm.transientPerson = $items[Math.floor(Math.random() * $items.length)];
           }
         }, time);
       }
+      return defer.promise;
     }
 
     function clearScreen() {
@@ -97,7 +105,7 @@
           }, 500);
 
         }
-      }, 100, vm.persons.length);
+      }, 250, vm.persons.length);
 
       return defer.promise;
     }
@@ -118,7 +126,7 @@
     });
 
     // $scope.$watch('vm.person', function (n, o) {
-        // watch for object
+    // watch for object
     // }, true);
 
     $scope.$watchCollection('vm.persons', function(n, o) {
