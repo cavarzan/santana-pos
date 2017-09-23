@@ -12,6 +12,9 @@
     'ngResource',
     'ui.router',
     'ui.bootstrap',
+    'ui-leaflet',
+    'ngStorage',
+    // 'leaflet-directive',
     'toastr']);
 
 })();

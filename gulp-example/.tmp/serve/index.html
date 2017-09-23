@@ -5,12 +5,17 @@
     <title>explorer</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="../bower_components/angular-toastr/dist/angular-toastr.css" />
     <link rel="stylesheet" href="../bower_components/animate.css/animate.css" />
+    <link rel="stylesheet" href="../bower_components/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="../bower_components/leaflet-draw/dist/leaflet.draw.css" />
+    <link rel="stylesheet" href="../bower_components/angular-animate-css/build/nga.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -26,7 +31,8 @@
     <![endif]-->
 
     <div>
-      <acme-navbar></acme-navbar>
+      <!-- <acme-navbar></acme-navbar> -->
+
     </div>
 
     <div ui-view></div>
@@ -48,15 +54,22 @@
     <script src="../bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
     <script src="../bower_components/moment/moment.js"></script>
     <script src="../bower_components/rxjs/dist/rx.all.js"></script>
+    <script src="../bower_components/leaflet/dist/leaflet-src.js"></script>
+    <script src="../bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
+    <script src="../bower_components/leaflet-draw/dist/leaflet.draw-src.js"></script>
+    <script src="../bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <script src="../bower_components/ui-leaflet/dist/ui-leaflet.js"></script>
+    <script src="../bower_components/ngstorage/ngStorage.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
     <!-- inject:js -->
     <script src="app/index.module.js"></script>
-    <script src="app/components/github/githubApi.service.js"></script>
     <script src="app/components/navbar/navbar.directive.js"></script>
+    <script src="app/components/github/githubApi.service.js"></script>
     <script src="app/components/filters/filters.js"></script>
+    <script src="app/raffle/raffle.controller.js"></script>
     <script src="app/main/main.controller.js"></script>
     <script src="app/details/details.controller.js"></script>
     <script src="app/components/storage.js"></script>
