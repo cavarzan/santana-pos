@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('explorer')
+    .module('storage-lib', [])
     .factory('storage', storage);
 
   /** @ngInject */

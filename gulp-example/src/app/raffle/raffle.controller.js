@@ -3,10 +3,11 @@
 
   angular
     .module('explorer')
-    .controller('RaffleController', RaffleController);
+    .controller('RaffleController', RaffleController)
+    .controller('ModalController', ModalController);
 
   /** @ngInject */
-  function RaffleController($q, $interval, $timeout, $scope, $sce, toastr) {
+  function RaffleController($uibModal, $localStorage, storage, $q, $interval, $timeout, $scope, $sce, toastr) {
 
     var vm = this;
 
@@ -14,9 +15,28 @@
     vm.showExecuteButton = false;
 
     vm.remove = function(person, $index) {
-      var item = vm.persons[$index];
-      var $i = vm.persons.indexOf(person);
-      vm.persons.splice($i, 1);
+
+      var modal = $uibModal.open({
+        templateUrl: 'app/raffle/modal.html',
+        controller: 'ModalController',
+        controllerAs: 'vm',
+        size: 'md',
+        resolve: {
+          item: function() {
+            return person;
+          }
+        }
+      });
+      modal.result.then(function() {
+        var item = vm.persons[$index];
+        var $i = vm.persons.indexOf(person);
+        vm.persons.splice($i, 1);
+
+      }, function() {
+
+      });
+
+
     }
 
     vm.addName = function($form) {
@@ -30,21 +50,27 @@
       });
 
       if (!hasItem) {
+        if (vm.persons === undefined) vm.persons = [];
         vm.persons.push(angular.copy(vm.person));
         vm.person.name = undefined;
       } else {
         toastr['error']('Nome já adicionado');
       }
 
-      var json = angular.toJson(vm.persons);
-      localStorage.setItem('persons', json);
+      //storage.set('persons', vm.persons);
+      $localStorage.persons = vm.persons;
 
     };
 
-    vm.loadStorage = function () {
-      var persons = localStorage.getItem('persons');
-      vm.persons = angular.fromJson(persons);
+    vm.loadStorage = function() {
+      // vm.persons = storage.get('persons');
+      vm.persons = $localStorage.persons;
     };
+
+    vm.clearStorage = function() {
+      storage.clear('persons');
+      vm.persons = [];
+    }
 
     function getNewMoment() {
       var defer = $q.defer();
@@ -137,7 +163,7 @@
     // }, true);
 
     $scope.$watchCollection('vm.persons', function(n, o) {
-      vm.showExecuteButton = n.length > 1 ? true : false;
+      vm.showExecuteButton = n !== undefined && n.length > 1 ? true : false;
     });
 
     vm.repeat = function() {
@@ -155,5 +181,21 @@
     };
 
 
+  }
+
+  function ModalController($uibModalInstance, item) {
+    var vm = this;
+
+    vm.item = item;
+
+    function clear() {
+      $uibModalInstance.dismiss('cancel');
+    }
+
+    function confirm() {
+
+      $uibModalInstance.close(true);
+
+    }
   }
 })();

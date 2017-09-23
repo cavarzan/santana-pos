@@ -6,6 +6,7 @@
     ['ngAnimate',
     'ngCookies',
     'ngTouch',
+    'storage-lib',
     'ngSanitize',
     'ngMessages',
     'ngAria',
