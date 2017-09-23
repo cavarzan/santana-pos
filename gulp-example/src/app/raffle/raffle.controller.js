@@ -39,6 +39,21 @@
 
     };
 
+    function getNewMoment() {
+      var defer = $q.defer();
+
+      $timeout(function () {
+        defer.resolve(moment().toDate());
+      }, 5000);
+
+      return defer.promise;
+    }
+    vm.deferred = moment().toDate();
+
+    getNewMoment().then(function (result) {
+      vm.deferred = result;
+    });
+
     vm.executeRaffle = function() {
       vm.items = angular.copy(vm.persons);
       vm.initialItems = angular.copy(vm.items);
