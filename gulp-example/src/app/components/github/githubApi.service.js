@@ -8,14 +8,31 @@ angular
       }
     });
   })
+  .factory("GithubUserSearch", function($resource) {
+    return $resource("https://api.github.com/search/users", {}, {
+      query: {
+        method: "GET",
+        isArray: true
+      }
+    });
+  })
   .factory("GithubUser", function($resource) {
     return $resource("https://api.github.com/users/:username/repos", {}, {
       query: {
         method: "GET",
         isArray: true,
         transformResponse: function(data, headers) {
-          console.log(headers());
-          console.log(headers()['Server']);
+          return angular.fromJson(data);
+        }
+      }
+    });
+  })
+  .factory("GithubUserRepository", function($resource) {
+    return $resource("https://api.github.com/repos/:username/:repo", {}, {
+      query: {
+        method: "GET",
+        isArray: true,
+        transformResponse: function(data, headers) {
           return angular.fromJson(data);
         }
       }

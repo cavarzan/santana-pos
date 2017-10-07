@@ -6,14 +6,10 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($localStorage, $scope, $state, $log, $timeout, $interval, toastr, Github, GithubUser, $http, leafletData) {
+  function MainController(GithubUserRepository, GithubUserSearch, $localStorage, $scope, $state, $log, $timeout, $interval, toastr, Github, GithubUser, $http, leafletData) {
     var vm = this;
 
-    vm.page = 1;
-
-    Github.get({q:'angular'}, function (result) {
-        console.log(result);
-    });
+    vm.page = 3;
 
     //
     //
@@ -114,11 +110,8 @@
       vm.timestamp = moment();
     }, 1000);
 
-    GithubUser.query({
-      username: 'cavarzan'
-    }, function(result) {
-      console.log(result);
-    });
+
+
 
     vm.search = "julia";
     vm.creationDate = moment();

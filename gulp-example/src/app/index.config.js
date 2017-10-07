@@ -11,7 +11,7 @@
     $logProvider.debugEnabled(true);
 
     $sceProvider.enabled(true);
-    // $httpProvider.defaults.headers.common['Authorization'] = 'token 70a3865c1e2b8cb04fcd938248eb04a933e8867a';
+    $httpProvider.defaults.headers.common['Authorization'] = 'token 961d26e9ac12c2cf0bb4951c2904052d92aa874d';
 
     // Set options third-party lib
     toastrConfig.allowHtml = true;
