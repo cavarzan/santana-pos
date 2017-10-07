@@ -10,7 +10,6 @@ angular
         and : '&'
       },
       link : function (scope, element, attributes) {
-          scope.fieldText = "Meu campo";
 
       },
       // controller: NamePrinterController,

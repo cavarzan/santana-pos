@@ -14,7 +14,7 @@
   /** @ngInject */
   function link($scope, $element, $attrs) {
     $element.css({
-      'background-image': 'url(' + $attrs.background + ')',
+    'background-image': 'url(' + $attrs.background + ')',
       'background-size': 'cover',
       'background-repeat': 'no-repeat',
       'background-position': 'center center'
