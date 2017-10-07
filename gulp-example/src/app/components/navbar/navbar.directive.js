@@ -8,7 +8,7 @@
   /** @ngInject */
   function acmeNavbar() {
     var directive = {
-      restrict: 'E',
+      restrict: 'EA',
       templateUrl: 'app/components/navbar/navbar.html',
       scope: {
           creationDate: '='
@@ -17,9 +17,7 @@
       controllerAs: 'vm',
       bindToController: true
     };
-
     return directive;
-
     /** @ngInject */
     function NavbarController(moment) {
       var vm = this;

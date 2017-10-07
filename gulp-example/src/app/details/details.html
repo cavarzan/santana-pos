@@ -1,4 +1,14 @@
 <div class="container">
 
-  <h1>{{vm.detail | json}}</h1>
+  <p ng-repeat="item in items">
+    {{item}} --- <br>
+    <span ng-repeat="text in texts">
+      {{text}} - Index: {{$index}}.
+      <br>
+      Parent: {{$parent.$index}}
+      <br>
+    </span>
+    <br>
+
+  </p>
 </div>
