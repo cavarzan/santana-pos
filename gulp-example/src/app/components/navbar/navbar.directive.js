@@ -17,9 +17,7 @@
       controllerAs: 'vm',
       bindToController: true
     };
-
     return directive;
-
     /** @ngInject */
     function NavbarController(moment) {
       var vm = this;

@@ -10,17 +10,8 @@ angular
         and : '&'
       },
       link : function (scope, element, attributes) {
-          console.log(scope.eq);
-          console.log(scope.$eval(scope.at));
-          console.log(scope.and());
-          scope.fieldText = "Meu campo"
-          scope.$watch('fieldText', function (n, o) {
-            if (n === 'BATMAN') {
-              element.css({
-                'color' : 'red'
-              });
-            }
-          });
+          scope.fieldText = "Meu campo";
+
       },
       // controller: NamePrinterController,
       // controllerAs: 'vm',
