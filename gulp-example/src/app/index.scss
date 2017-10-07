@@ -5,6 +5,7 @@
 $navbar-inverse-link-color: #5AADBB;
 $icon-font-path: "../../bootstrap-sass/assets/fonts/bootstrap/";
 
+
 /**
  *  Do not remove the comments below. It's the markers used by wiredep to inject
  *  sass dependencies when defined in the bower.json of your dependencies
@@ -25,6 +26,11 @@ $icon-font-path: "../../bootstrap-sass/assets/fonts/bootstrap/";
   img.pull-right {
     width: 50px;
   }
+}
+
+.large-container {
+  min-width : 500px;
+  min-height: : 500px;
 }
 
 /**

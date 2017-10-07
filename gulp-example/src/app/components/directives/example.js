@@ -1,6 +1,6 @@
 angular
   .module('explorer')
-  .directive("namePrinter", function() {
+  .directive("namePrinterTest", function() {
     return {
       restrict: 'EA',
       templateUrl : 'app/components/directives/example.html',
@@ -10,7 +10,7 @@ angular
         and : '&'
       },
       link : function (scope, element, attributes) {
-          console.log(scope);
+
       },
       // controller: NamePrinterController,
       // controllerAs: 'vm',
