@@ -26,7 +26,10 @@
     vm.eq = {
       name: 'equals!'
     };
-
+    console.log('ok')
+    $http.get('https://api.github.com/search/users?q=teste').then(function (result) {
+      console.log(result);
+    });
     vm.at = {
       name: 'at!'
     };
